@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="videos" date="2014-01-05T14:38:32+01:00">
+		<header/>
+		<body>
+			<trans-unit id="tx_videos_domain_model_cuepoint.plural">
+				<source>Cue points</source>
+			</trans-unit>
+			<trans-unit id="tx_videos_domain_model_cuepoint.singular">
+				<source>Cue point</source>
+			</trans-unit>
+			<trans-unit id="tx_videos_domain_model_cuepoint.title">
+				<source>Titel</source>
+			</trans-unit>
+			<trans-unit id="tx_videos_domain_model_cuepoint.position">
+				<source>Position</source>
+			</trans-unit>
+
+			<trans-unit id="poster">
+				<source>Poster</source>
+			</trans-unit>
+			<trans-unit id="tracks">
+				<source>Tracks</source>
+			</trans-unit>
+			<trans-unit id="track_language">
+				<source>Track language</source>
+			</trans-unit>
+			<trans-unit id="track_type">
+				<source>Track type</source>
+			</trans-unit>
+			<trans-unit id="track_type.subtitles">
+				<source>Subtitles</source>
+			</trans-unit>
+			<trans-unit id="track_type.captions">
+				<source>Captions</source>
+			</trans-unit>
+			<trans-unit id="track_type.descriptions">
+				<source>Descriptions</source>
+			</trans-unit>
+			<trans-unit id="track_type.chapters">
+				<source>Chapters</source>
+			</trans-unit>
+			<trans-unit id="track_type.metadata">
+				<source>Metadata</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,40 @@
+
+.tx-videos__player {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.tx-videos__player .video-js {
+    -webkit-box-flex: 3;
+    -ms-flex: 3 1 70%;
+    flex: 3 1 70%;
+}
+
+.tx-videos__player .playlist-container {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 30%;
+    flex: 1 1 30%;
+
+    padding: 0;
+
+    position: relative;
+}
+
+.tx-videos__player .playlist-container .vjs-playlist {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    right: 0;
+}
+
+.vjs-playlist .vjs-selected {
+    background-color: #2e5e96;
+}
