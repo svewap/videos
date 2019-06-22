@@ -10,7 +10,7 @@
 <f:section name="Main">
 
 	<div class="player-container tx-videos__player">
-		<video id="video" class="video-js vjs-big-play-centered vjs-fluid" controls preload="auto" crossorigin="anonymous" >
+		<video id="video{data.uid}" class="video-js vjs-big-play-centered vjs-fluid" controls preload="auto" crossorigin="anonymous" >
 			<p class="vjs-no-js"><f:translate key="LLL:EXT:videos/Resources/Language/locallang.xfl:javascript_disabled" /></p>
 		</video>
 
@@ -21,11 +21,13 @@
 
 
 	<script>
-        var player = videojs('video');
+        var player{data.uid} = videojs('video{data.uid}');
 
-        player.playlist({videos -> f:format.raw()});
+        player{data.uid}.playlist({videos -> f:format.raw()});
 
-        player.playlistUi();
+        player{data.uid}.playlistUi();
+
+        player{data.uid}.markers();
 	</script>
 
 

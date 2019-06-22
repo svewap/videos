@@ -121,7 +121,6 @@
 
   var playItem = function playItem(player, item) {
     var replay = !player.paused() || player.ended();
-    console.debug(item);
     player.trigger('beforeplaylistitem', item.originalValue || item);
 
     if (item.playlistItemId_) {

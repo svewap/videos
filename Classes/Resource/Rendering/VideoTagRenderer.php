@@ -20,7 +20,6 @@ use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Resource\Rendering\FileRendererInterface;
-use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
@@ -120,7 +119,7 @@ class VideoTagRenderer implements FileRendererInterface
 
         }
 
-        $track = '';
+        $tracks = '';
         if ($file->getOriginalFile()->getProperty('tracks')) {
 
             /** @var FileRepository $fileRepository */
@@ -157,7 +156,7 @@ class VideoTagRenderer implements FileRendererInterface
                     }
                 }
 
-                $track .= '<track label="'.$languageTitle.'" kind="'.($trackType ?: 'subtitles').'" srclang="'.$isoCode.'" src="' . $fileObject->getPublicUrl() . '">';
+                $tracks .= '<track label="'.$languageTitle.'" kind="'.($trackType ?: 'subtitles').'" srclang="'.$isoCode.'" src="' . $fileObject->getPublicUrl() . '">';
             }
         }
 
@@ -167,13 +166,14 @@ class VideoTagRenderer implements FileRendererInterface
                 $attributes[] = $key . '="' . htmlspecialchars($options[$key]) . '"';
             }
         }
+        $attributes[] = 'data-setup="{}"';
 
         return sprintf(
             '<video%s><source src="%s" type="%s">%s</video>',
             empty($attributes) ? '' : ' ' . implode(' ', $attributes),
             htmlspecialchars($file->getPublicUrl($usedPathsRelativeToCurrentScript)),
             $file->getMimeType(),
-            $track
+            $tracks
         );
     }
 }

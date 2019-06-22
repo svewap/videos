@@ -12,17 +12,19 @@ tt_content.videos_playlist {
 			references.fieldName = assets
 		}
 		20 = WapplerSystems\Videos\DataProcessing\JsonPlaylistProcessor
-		20 {
-
-
-		}
 	}
+}
+
+tt_content.textmedia {
+
+	partialRootPaths.232 = EXT:videos/Resources/Private/Partials/fluid_styled_content/
+
 }
 
 
 page.includeJS {
 
-	videojs = EXT:videos/Resources/Public/JavaScript/video.min.js
+	videojs = EXT:videos/Resources/Public/JavaScript/video.js
 	videojs-de = EXT:videos/Resources/Public/JavaScript/lang/de.js
 
 	videojs-playlist = EXT:videos/Resources/Public/JavaScript/videojs-playlist.js
