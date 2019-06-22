@@ -135,13 +135,14 @@
 
                 if (track.kind === 'chapters') {
                     var cues = track.cues;
-
-                    for (var y = 0; y < cues.length; y++) {
-                        var cue = cues[y];
-                        newMarkers.push({
-                            time: cue.startTime,
-                            text: cue.text
-                        });
+                    if (cues !== null) {
+                        for (var y = 0; y < cues.length; y++) {
+                            var cue = cues[y];
+                            newMarkers.push({
+                                time: cue.startTime,
+                                text: cue.text
+                            });
+                        }
                     }
                 }
             }
@@ -419,7 +420,7 @@
             }
             onTimeUpdate();
             player.on("timeupdate", onTimeUpdate);
-            player.off("loadedmetadata");
+            //player.off("loadedmetadata");
         }
 
         // setup the plugin after we loaded video's meta data

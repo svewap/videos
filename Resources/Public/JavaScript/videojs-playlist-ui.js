@@ -152,7 +152,6 @@
     _proto.switchPlaylistItem_ = function switchPlaylistItem_(event) {
       this.player_.playlist.currentItem(indexOf(this.player_.playlist(), this.item));
 
-      console.info("switchPlaylistItem_");
       if (this.playOnSelect) {
         this.player_.play();
       }

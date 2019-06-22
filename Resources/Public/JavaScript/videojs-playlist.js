@@ -139,6 +139,7 @@
     player.ready(function () {
       (item.textTracks || []).forEach(player.addRemoteTextTrack.bind(player));
       player.trigger('playlistitem', item.originalValue || item);
+      player.trigger('loadedmetadata');
 
       if (replay) {
         var playPromise = player.play(); // silence error when a pause interrupts a play request
