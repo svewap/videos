@@ -296,7 +296,6 @@
     _proto2.createPlaylist_ = function createPlaylist_() {
       var playlist = this.player_.playlist() || [];
       var list = this.el_.querySelector('.vjs-playlist-item-list');
-      var overlay = this.el_.querySelector('.vjs-playlist-ad-overlay');
 
       if (!list) {
         list = document.createElement('ol');
@@ -315,16 +314,6 @@
       } // Inject the ad overlay. IE<11 doesn't support "pointer-events:
       // none" so we use this element to block clicks during ad
       // playback.
-
-
-      if (!overlay) {
-        overlay = document.createElement('li');
-        overlay.className = 'vjs-playlist-ad-overlay';
-        list.appendChild(overlay);
-      } else {
-        // Move overlay to end of list
-        list.appendChild(overlay);
-      } // select the current playlist item
 
 
       var selectedIndex = this.player_.playlist.currentItem();
