@@ -43,6 +43,11 @@
 			<trans-unit id="track_type.metadata">
 				<source>Metadata</source>
 			</trans-unit>
+
+			<trans-unit id="tt_content.videos">
+				<source>Videos</source>
+			</trans-unit>
+
 		</body>
 	</file>
 </xliff>

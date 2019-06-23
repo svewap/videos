@@ -32,10 +32,28 @@ $GLOBALS['TCA']['tt_content']['types']['videos_playlist'] = [
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
     ',
     'columnsOverrides' => [
-        'bodytext' => [
+        'assets' => [
+            'label' => 'LLL:EXT:videos/Resources/Private/Language/locallang_be.xlf:tt_content.videos',
             'config' => [
-                'enableRichtext' => true,
-                'richtextConfiguration' => 'default'
+                'filter' => [
+                    0 => [
+                        'userFunc' => \TYPO3\CMS\Core\Resource\Filter\FileExtensionFilter::class . '->filterInlineChildren',
+                        'parameters' => [
+                            'allowedFileExtensions' => 'mp4',
+                        ]
+                    ]
+                ],
+                'overrideChildTca' => [
+                    'columns' => [
+                        'uid_local' => [
+                            'config' => [
+                                'appearance' => [
+                                    'elementBrowserAllowed' => 'mp4',
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ]
     ]
