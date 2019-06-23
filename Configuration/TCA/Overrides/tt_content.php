@@ -5,10 +5,13 @@
     [
         'Video Playlist',
         'videos_playlist',
+        'EXT:core/Resources/Public/Icons/T3Icons/mimetypes/mimetypes-x-content-multimedia.svg'
     ],
     'CType',
     'videos'
 );
+
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['videos_playlist'] = 'mimetypes-x-content-videos_playlist';
 
 
 $GLOBALS['TCA']['tt_content']['types']['videos_playlist'] = [

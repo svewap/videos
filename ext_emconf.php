@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
 	'title' => 'Videos',
-	'description' => 'Video playlist with cue points',
+	'description' => 'Video player for playlists with cue points, preview image and subtitles',
 	'author' => 'Sven Wappler',
 	'author_email' => 'typo3@wappler.systems',
 	'category' => 'misc',
