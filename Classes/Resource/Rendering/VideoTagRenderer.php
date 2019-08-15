@@ -119,6 +119,9 @@ class VideoTagRenderer implements FileRendererInterface
 
         }
 
+        /* TODO: make it configurable */
+        $attributes[] = 'oncontextmenu="return false;"';
+
         $tracks = '';
         if ($file->getOriginalFile()->getProperty('tracks')) {
 
