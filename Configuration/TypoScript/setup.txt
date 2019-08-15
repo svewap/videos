@@ -5,7 +5,7 @@
 tt_content.videos_playlist < lib.contentElement
 tt_content.videos_playlist {
 	templateName = VideoPlaylist
-	templateRootPaths.232 = EXT:videos/Resources/Private/Templates/
+	templateRootPaths.20 = EXT:videos/Resources/Private/Templates/
 	dataProcessing {
 		10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
 		10 {
@@ -30,7 +30,7 @@ page.includeJS {
 	videojs-playlist = EXT:videos/Resources/Public/JavaScript/videojs-playlist.js
 	videojs-playlist-ui = EXT:videos/Resources/Public/JavaScript/videojs-playlist-ui.js
 	videojs-markers = EXT:videos/Resources/Public/JavaScript/videojs-markers.js
-
+	videojs-markers-ui = EXT:videos/Resources/Public/JavaScript/videojs-markers-ui.js
 }
 
 page.includeCSS {
@@ -39,6 +39,7 @@ page.includeCSS {
 
 	videojs-playlist-ui-vertical = EXT:videos/Resources/Public/CSS/videojs-playlist-ui.vertical.css
 	videojs-markers = EXT:videos/Resources/Public/CSS/videojs-markers.css
+	videojs-markers-ui = EXT:videos/Resources/Public/CSS/videojs-markers-ui.css
 
 	videos-styles = EXT:videos/Resources/Public/CSS/styles.css
 

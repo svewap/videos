@@ -1,0 +1,53 @@
+
+.vjs-markers-sidebar {
+
+    display: flex;
+
+}
+
+.vjs-markers-sidebar .video-js {
+    flex: 3 1 70%;
+}
+
+.vjs-markers-sidebar .vjs-markersui {
+    flex: 1 1 30%;
+}
+
+.vjs-markersui-item-list {
+    list-style: none;
+    padding: 0 21px;
+}
+
+.vjs-markersui-title-container {
+    cursor: pointer;
+}
+
+.vjs-markersui-title-container span {
+    display: block;
+    padding: 10px 0;
+}
+
+.vjs-markersui-item.vjs-selected {
+    font-weight: bold;
+}
+
+.vjs-markersui-item:after {
+    content: '';
+    display: block;
+    height: 1px;
+    border-bottom: 1px solid #ccc;
+}
+
+.vjs-markersui-vertical {
+    overflow-y: auto;
+    position: relative;
+}
+
+.vjs-markersui-item-list {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px;
+    right: 0;
+}

@@ -420,6 +420,7 @@
             }
             onTimeUpdate();
             player.on("timeupdate", onTimeUpdate);
+            player.trigger('markersloaded');
             //player.off("loadedmetadata");
         }
 
@@ -432,6 +433,30 @@
         player.markers = {
             getMarkers: function getMarkers() {
                 return markersList;
+            },
+            current: function current(index) {
+                if (index !== null) {
+                    var markerTime = setting.markerTip.time(markersList[index]);
+                    player.currentTime(markerTime);
+                    player.play();
+                    return;
+                }
+                var currentTime = player.currentTime();
+                for (var i = 0; i < markersList.length; i++) {
+                    var markerTime = setting.markerTip.time(markersList[i]);
+                    if (markerTime >= currentTime) {
+                        return markersList[i];
+                    }
+                }
+            },
+            currentIndex: function currentIndex() {
+                var currentTime = player.currentTime();
+                for (var i = 0; i < markersList.length; i++) {
+                    var markerTime = setting.markerTip.time(markersList[i]);
+                    if (markerTime >= currentTime) {
+                        return i;
+                    }
+                }
             },
             next: function next() {
                 // go to the next marker from current timestamp
