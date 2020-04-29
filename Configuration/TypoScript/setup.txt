@@ -24,7 +24,7 @@ tt_content.textmedia {
 
 page.includeJS {
 
-	videojs = EXT:videos/Resources/Public/JavaScript/video.js
+	videojs = EXT:videos/Resources/Public/JavaScript/video.min.js
 	videojs-de = EXT:videos/Resources/Public/JavaScript/lang/de.js
 
 	videojs-playlist = EXT:videos/Resources/Public/JavaScript/videojs-playlist.js
