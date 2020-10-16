@@ -16,8 +16,9 @@
   ],
   "homepage": "https://wappler.systems",
   "require": {
-    "typo3/cms-core": "^8.7.8",
-    "typo3/cms-filemetadata" : "^8.7.8"
+    "typo3/cms-core": "^9.5.20",
+    "typo3/cms-filemetadata" : "^9.5.20",
+    "fluidtypo3/vhs": "^6.0.0"
   },
   "extra": {
     "typo3/cms": {

@@ -1,4 +1,5 @@
 <?php
+
 namespace WapplerSystems\Videos\Resource\Rendering;
 
 /*
@@ -72,7 +73,6 @@ class VideoTagRenderer implements FileRendererInterface
      */
     public function render(FileInterface $file, $width, $height, array $options = [], $usedPathsRelativeToCurrentScript = false)
     {
-
         // If autoplay isn't set manually check if $file is a FileReference take autoplay from there
         if (!isset($options['autoplay']) && $file instanceof FileReference) {
             $autoplay = $file->getProperty('autoplay');
@@ -82,6 +82,15 @@ class VideoTagRenderer implements FileRendererInterface
         }
 
         $attributes = [];
+        if (isset($options['additionalAttributes']) && is_array($options['additionalAttributes'])) {
+            $attributes[] = GeneralUtility::implodeAttributes($options['additionalAttributes'], true, true);
+        }
+        if (isset($options['data']) && is_array($options['data'])) {
+            array_walk($options['data'], function (&$value, $key) {
+                $value = 'data-' . htmlspecialchars($key) . '="' . htmlspecialchars($value) . '"';
+            });
+            $attributes[] = implode(' ', $options['data']);
+        }
         if ((int)$width > 0) {
             $attributes[] = 'width="' . (int)$width . '"';
         }
@@ -100,9 +109,22 @@ class VideoTagRenderer implements FileRendererInterface
         if (!empty($options['loop'])) {
             $attributes[] = 'loop';
         }
+        if (isset($options['additionalConfig']) && is_array($options['additionalConfig'])) {
+            foreach ($options['additionalConfig'] as $key => $value) {
+                if ((bool)$value) {
+                    $attributes[] = htmlspecialchars($key);
+                }
+            }
+        }
+
+        foreach (['class', 'dir', 'id', 'lang', 'style', 'title', 'accesskey', 'tabindex', 'onclick', 'controlsList', 'preload'] as $key) {
+            if (!empty($options[$key])) {
+                $attributes[] = $key . '="' . htmlspecialchars($options[$key]) . '"';
+            }
+        }
 
         if (!empty($options['poster'])) {
-            $attributes[] = 'poster="'.$options['poster'].'"';
+            $attributes[] = 'poster="' . $options['poster'] . '"';
         }
 
         if ($file->getOriginalFile()->getProperty('poster')) {
@@ -118,6 +140,9 @@ class VideoTagRenderer implements FileRendererInterface
             }
 
         }
+
+        // Clean up duplicate attributes
+        $attributes = array_unique($attributes);
 
         /* TODO: make it configurable */
         $attributes[] = 'oncontextmenu="return false;"';
@@ -136,7 +161,7 @@ class VideoTagRenderer implements FileRendererInterface
                 $trackLanguage = $fileObject->getProperty('track_language');
                 $trackType = $fileObject->getProperty('track_type');
                 $languageTitle = LocalizationUtility::translate('language.default', 'videos');
-                $isoCode = $GLOBALS['TSFE']->sys_language_isocode;
+                $isoCode = '';
 
                 if ($trackLanguage > 0) {
                     /** @var QueryBuilder $queryBuilder */
@@ -159,7 +184,9 @@ class VideoTagRenderer implements FileRendererInterface
                     }
                 }
 
-                $tracks .= '<track label="'.$languageTitle.'" kind="'.($trackType ?: 'subtitles').'" srclang="'.$isoCode.'" src="' . $fileObject->getPublicUrl() . '">';
+                $tracks .= '<track label="' . $languageTitle . '" kind="' . ($trackType ?: 'subtitles') . '"';
+                $tracks .= ' srclang="' . ($isoCode ?: '') . '"';
+                $tracks .= ' src="' . $fileObject->getPublicUrl() . '">';
             }
         }
 
