@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-  <file source-language="en" datatype="plaintext" original="messages" product-name="videos" date="2014-01-05T14:38:32+01:00" target-language="pt-PT">
+  <file source-language="en" datatype="plaintext" original="messages" product-name="videos" date="2014-01-05T14:38:32+01:00" target-language="pt-BR">
     <header/>
     <body>
       <trans-unit id="tx_videos_domain_model_cuepoint.plural">
