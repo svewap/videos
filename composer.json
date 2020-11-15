@@ -19,6 +19,11 @@
     "typo3/cms-core": "^8.7.8",
     "typo3/cms-filemetadata" : "^8.7.8"
   },
+  "autoload": {
+    "psr-4": {
+      "WapplerSystems\\Videos\\": "Classes"
+    }
+  },
   "extra": {
     "typo3/cms": {
       "videos": "videos"
