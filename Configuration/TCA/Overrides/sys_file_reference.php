@@ -11,8 +11,8 @@ $newSysFileReferenceColumns = [
             'foreign_table' => 'sys_language',
             'foreign_table_where' => 'ORDER BY sys_language.title',
             'items' => [
-                ['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages', -1],
-                ['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.default_value', 0]
+                ['LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages', -1],
+                ['LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.default_value', 0]
             ],
             'default' => 0,
             'fieldWizard' => [
@@ -40,4 +40,7 @@ $newSysFileReferenceColumns = [
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_file_reference', $newSysFileReferenceColumns);
-
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+    'sys_file_reference',
+    '--linebreak--,poster,tracks'
+);
