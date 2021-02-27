@@ -141,7 +141,7 @@ class JsonPlaylistProcessor implements DataProcessorInterface
                 'description' => $file->getDescription(),
                 'sources' => [
                     [
-                        'src' => $file->getPublicUrl(),
+                        'src' => '/'.$file->getPublicUrl(),
                         'type' => $file->getMimeType()
                     ]
                 ],
@@ -157,7 +157,7 @@ class JsonPlaylistProcessor implements DataProcessorInterface
                 if (isset($fileObjects[0])) {
                     /** @var FileReference $posterFile */
                     $posterFile = $fileObjects[0];
-                    $video['thumbnail'] = $posterFile->getPublicUrl();
+                    $video['thumbnail'] = '/'.$posterFile->getPublicUrl();
 
                     /*
                      * $video['thumbnail'][] = [
@@ -211,7 +211,7 @@ class JsonPlaylistProcessor implements DataProcessorInterface
                         'label' => $languageTitle,
                         'kind' => $trackType ?: 'subtitles',
                         'language' => $isoCode,
-                        'src' => $fileObject->getPublicUrl(),
+                        'src' => '/'.$fileObject->getPublicUrl(),
                         'default' => $default,
                     ];
 
@@ -221,6 +221,5 @@ class JsonPlaylistProcessor implements DataProcessorInterface
             $this->jsonData[] = $video;
         }
 
-        //DebugUtility::debug($this->jsonData);
     }
 }
